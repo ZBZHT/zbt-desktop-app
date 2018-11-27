@@ -11,14 +11,18 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "element-ui": "^2.4.9",
     "node-webkit-updater": "^0.3.3",
-    "nw": "0.14.7-sdk",
+    "nw": "^0.33.4-sdk",
     "video.js": "^7.3.0",
     "videojs-contrib-hls": "^5.15.0",
+    "videojs-flash": "^2.1.2",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
-    "vue-video-player": "^5.0.2"
+    "vue-video-player": "^5.0.2",
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -76,8 +80,8 @@
   "window": {
     "title": "vue-nw-seed",
     "toolbar": false,
-    "width": 800,
-    "height": 500,
+    "width": 1024,
+    "height": 768,
     "min_width": 800,
     "min_height": 500,
     "resizable": true,
