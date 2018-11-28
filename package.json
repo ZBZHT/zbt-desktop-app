@@ -1,6 +1,6 @@
 {
   "name": "vue-nw-seed",
-  "appName": "应用的中文别名",
+  "appName": "中邦智慧实训系统",
   "version": "0.1.1",
   "description": "A seed project with Vue.js and Nw.js",
   "author": "anchengjian <anchengjian@gmail.com>",
@@ -13,6 +13,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "element-ui": "^2.4.9",
+    "js-md5": "^0.7.3",
+    "moment": "^2.22.2",
     "node-webkit-updater": "^0.3.3",
     "nw": "^0.33.4-sdk",
     "video.js": "^7.3.0",
@@ -78,7 +80,7 @@
   "main": "http://127.0.0.1:8080",
   "manifestUrl": "http://127.0.0.1:8080/releases/upgrade.json",
   "window": {
-    "title": "vue-nw-seed",
+    "title": "中邦智慧实训系统",
     "toolbar": false,
     "width": 1024,
     "height": 768,
@@ -89,6 +91,10 @@
     "kiosk": false,
     "icon": "/static/logo.png",
     "show_in_taskbar": true
+  },
+  "webkit": {
+    "plugin": true,
+    "page-cache": false
   },
   "nodejs": true,
   "js-flags": "--harmony",

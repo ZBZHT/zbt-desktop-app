@@ -1,51 +1,61 @@
 <template>
-  <div class="hello">
+  <div id="index">
+    <div id="header">
+      <NavgationHead></NavgationHead>
+    </div>
 
-    <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane label="表格" name="first">
-        <el-button type="success" @click="loadFile">点击获取文件数据</el-button>
+    <div id="content" v-show="true">
+      <HomePage></HomePage>
 
-        <el-upload
-          class="upload-demo1"
-          action="http://192.168.0.251/fileUpDown/upload"
-          ref="upload"
-          :data="label1"
-          :show-file-list="false"
-          :onError="uploadError"
-          :onSuccess="uploadSuccess">
-          <el-button slot="trigger">选取上传文件</el-button>
-        </el-upload>
+      <!--<el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tab-pane label="表格" name="first">
+          <el-button type="success" @click="loadFile">点击获取文件数据</el-button>
 
-        <el-table :data="tableData" style="width: 100%">
-          <el-table-column prop="fileName" label="名称" width="260">
-          </el-table-column>
-          <el-table-column prop="birthTime" label="日期" width="200">
-          </el-table-column>
-          <el-table-column prop="personName" label="上传人">
-          </el-table-column>
-          <el-table-column prop="size" label="文件大小">
-          </el-table-column>
+          <el-upload
+            class="upload-demo1"
+            action="http://192.168.0.251/fileUpDown/upload"
+            ref="upload"
+            :data="label1"
+            :show-file-list="false"
+            :onError="uploadError"
+            :onSuccess="uploadSuccess">
+            <el-button slot="trigger">选取上传文件</el-button>
+          </el-upload>
 
-          <el-table-column fixed="right" label="操作" width="100">
-            <template slot-scope="scope">
-              <el-button @click="sendName(scope.row.fileName)" type="text" size="small">下载</el-button>
-            </template>
-          </el-table-column>
-        </el-table>
+          <el-table :data="tableData" style="width: 100%">
+            <el-table-column prop="fileName" label="名称" width="260">
+            </el-table-column>
+            <el-table-column prop="birthTime" label="日期" width="200">
+            </el-table-column>
+            <el-table-column prop="personName" label="上传人">
+            </el-table-column>
+            <el-table-column prop="size" label="文件大小">
+            </el-table-column>
 
-      </el-tab-pane>
-      <el-tab-pane label="角色管理" name="third">
-        <el-button type="success" @click="successMsg('消息提示')">成功消息提示</el-button>
-        <video src="http://192.168.0.251/resource/新能源汽车/纯电动汽车/高压安全操作与保养维护/基本信息收集与介绍/纯电动汽车基本信息收集与介绍.mp4"
-               autoplay controls="controls" controlslist="nodownload" style="width: 500px"></video>
-      </el-tab-pane>
-      <el-tab-pane label="定时任务补偿" name="fourth">
-        <video-player class="vjs-custom-skin" ref="videoPlayer" :options="playerOptions">
-        </video-player>
-      </el-tab-pane>
-    </el-tabs>
+            <el-table-column fixed="right" label="操作" width="100">
+              <template slot-scope="scope">
+                <el-button @click="sendName(scope.row.fileName)" type="text" size="small">下载</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
 
-    <FootFooter></FootFooter>
+        </el-tab-pane>
+        <el-tab-pane label="角色管理" name="third">
+          <el-button type="success" @click="successMsg('消息提示')">成功消息提示</el-button>
+          <el-button type="success" @click="ceShi">成功消息提示</el-button>
+          <video src="http://192.168.0.251/resource/新能源汽车/纯电动汽车/高压安全操作与保养维护/基本信息收集与介绍/纯电动汽车基本信息收集与介绍.mp4"
+                 autoplay controls="controls" controlslist="nodownload" style="width: 500px"></video>
+        </el-tab-pane>
+        <el-tab-pane label="定时任务补偿" name="fourth">
+          <video-player class="vjs-custom-skin" ref="videoPlayer" :options="playerOptions">
+          </video-player>
+        </el-tab-pane>
+      </el-tabs>-->
+    </div>
+
+    <div id="footer">
+      <FootFooter></FootFooter>
+    </div>
   </div>
 </template>
 
@@ -71,6 +81,9 @@
     methods: {
       uploadSuccess (res, file) {
         this.successMsg('上传成功')
+      },
+      ceShi () {
+        this.$store.commit('loginPage', true)
       },
       // 上传错误
       uploadError (res, file, fileList) {
@@ -137,7 +150,19 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  #content {
+    padding-top: 94px;
+    /*background: -webkit-linear-gradient(top, #995c5d, #711718);*/
+  }
+  #content .indexImg {
+  }
+
   h1, h2 {
     font-weight: normal;
   }
